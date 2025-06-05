@@ -1,0 +1,48 @@
+name: Hemal Lab2 CI/CD Workflow
+
+# Trigger the workflow when code is pushed to main branch
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    # Action 1: Checkout the repository code
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    # Action 2: Set up Python environment  
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+        
+    # Action 3: Display Python version and install dependencies
+    - name: Install dependencies and show Python info
+      run: |
+        python --version
+        python -m pip install --upgrade pip
+        echo "Python environment setup completed"
+        echo "Dependencies installed successfully"
+        
+    # Action 4: Run the Python script
+    - name: Execute Python script
+      run: |
+        echo "Running main.py..."
+        python main.py
+        echo "Python script executed successfully"
+        
+    # Action 5: Display workflow completion info
+    - name: Workflow completion summary
+      run: |
+        echo " GitHub Actions workflow completed successfully!"
+        echo " Execution date: $(date)"
+        echo " Executed by: Hemal-22"
+        echo " Repository: Lab2"
+        echo " Workflow: hemal-workflow.yaml"
+        echo " Job status: SUCCESS"
