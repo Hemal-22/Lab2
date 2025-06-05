@@ -1,0 +1,1 @@
+echo print("Hello from Lab2!") > main.py
