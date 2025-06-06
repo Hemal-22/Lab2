@@ -1,4 +1,4 @@
-echo print("Hello from Lab2!") 
+#echo print("Hello from Lab2!") 
 
 # Create a proper main.py file
 echo print("Hello from Lab2 - Hemal!") 
